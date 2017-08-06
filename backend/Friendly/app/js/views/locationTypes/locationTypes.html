@@ -1,0 +1,23 @@
+﻿<div>
+    <h1 class="page-header">Location Types</h1>
+    <p class="text-right">
+        <a class="btn btn-success btn-lg" href="#/locationTypes/new/edit" role="button">Add Location Type</a>
+    </p>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="locationType in locationTypes">
+                <td>{{ ($index+1) }}</td>
+                <td><a href="#/locationTypes/{{locationType.id}}">{{ locationType.name }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

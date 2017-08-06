@@ -1,0 +1,13 @@
+﻿<div>
+    <h1 class="page-header">
+        {{check.description}}
+    </h1>
+</div>
+<div>    
+    <h3><span class="label label-primary">{{check.tag.description}}</span></h3>
+    <p>&nbsp;</p>
+    <p class="text-right">
+        <a class="btn btn-danger btn-lg" href="" role="button" ng-click="deleteCheck()">Delete</a>
+        <a class="btn btn-success btn-lg" href="#/checks/{{check.id}}/edit" role="button">Edit</a>
+    </p>
+</div>

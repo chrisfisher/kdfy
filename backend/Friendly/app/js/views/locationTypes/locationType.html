@@ -1,0 +1,31 @@
+﻿<div>
+    <h1 class="page-header">
+        {{locationType.name}}
+    </h1>      
+</div>
+<div>    
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Checks</b></h3> 
+        </div>
+        <ul class="list-group">            
+            <li class="list-group-item"  ng-repeat="check in locationType.checks">
+                {{check.description}}                  
+            </li>
+        </ul>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Ratings</b></h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="rating in locationType.ratings">
+                {{rating.description}} 
+            </li>
+        </ul>
+    </div>
+    <p class="text-right">        
+        <a class="btn btn-danger btn-lg" href="" role="button" ng-click="deleteLocationType()">Delete</a>
+        <a class="btn btn-success btn-lg" href="#/locationTypes/{{locationType.id}}/edit" role="button">Edit</a>
+    </p>   
+</div>

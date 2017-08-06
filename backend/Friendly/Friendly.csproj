@@ -1,0 +1,412 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{B8D0457F-FA3A-479D-8EFF-2821B5F94C95}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Friendly</RootNamespace>
+    <AssemblyName>Friendly</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>false</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Autofac, Version=3.5.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.3.5.0\lib\net40\Autofac.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Autofac.Integration.WebApi, Version=3.4.0.0, Culture=neutral, PublicKeyToken=17863af14b0044da, processorArchitecture=MSIL">
+      <HintPath>..\packages\Autofac.WebApi2.3.4.0\lib\net45\Autofac.Integration.WebApi.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="AutoMapper, Version=4.1.1.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.4.1.1\lib\net45\AutoMapper.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin, Version=2.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Azure.KeyVault.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.KeyVault.Core.1.0.0\lib\net40\Microsoft.Azure.KeyVault.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.6.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.6.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Data.Services.Client, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Services.Client.5.6.4\lib\net40\Microsoft.Data.Services.Client.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAzure.Storage, Version=6.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\WindowsAzure.Storage.6.2.0\lib\net40\Microsoft.WindowsAzure.Storage.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="StackExchange.Redis, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\StackExchange.Redis.1.1.572-alpha\lib\net45\StackExchange.Redis.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Swashbuckle.Core, Version=1.0.0.0, Culture=neutral, PublicKeyToken=cd1bb07a5ac7c7bc, processorArchitecture=MSIL">
+      <HintPath>..\packages\Swashbuckle.Core.5.3.2\lib\net40\Swashbuckle.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Spatial, Version=5.6.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.6.4\lib\net40\System.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.3\lib\net45\System.Web.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Http, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.3\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Cors, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.3\lib\net45\System.Web.Http.Cors.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.Owin, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Owin.5.2.3\lib\net45\System.Web.Http.Owin.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.WebHost.5.2.3\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="WebActivatorEx, Version=2.0.0.0, Culture=neutral, PublicKeyToken=7b26dc2a43f6a0d4, processorArchitecture=MSIL">
+      <HintPath>..\packages\WebActivatorEx.2.1.0\lib\net40\WebActivatorEx.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\css\app.css" />
+    <Content Include="app\css\vendor\dashboard.css" />
+    <Content Include="app\css\vendor\bootstrap-theme.css" />
+    <Content Include="app\css\vendor\bootstrap-theme.min.css" />
+    <Content Include="app\css\vendor\bootstrap.css" />
+    <Content Include="app\css\vendor\bootstrap.min.css" />
+    <Content Include="app\css\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="app\js\app.js" />
+    <Content Include="app\js\controllers\checks\check.js" />
+    <Content Include="app\js\controllers\checks\edit.js" />
+    <Content Include="app\js\controllers\locations\edit.js" />
+    <Content Include="app\js\controllers\locations\reviews.js" />
+    <Content Include="app\js\controllers\locations\review.js" />
+    <Content Include="app\js\controllers\locationTypes\edit.js" />
+    <Content Include="app\js\controllers\checks\checks.js" />
+    <Content Include="app\js\controllers\locations\location.js" />
+    <Content Include="app\js\controllers\logout.js" />
+    <Content Include="app\js\controllers\login.js" />
+    <Content Include="app\js\controllers\locations\locations.js" />
+    <Content Include="app\js\controllers\locationTypes\locationType.js" />
+    <Content Include="app\js\controllers\locationTypes\locationTypes.js" />
+    <Content Include="app\js\controllers\ratings\edit.js" />
+    <Content Include="app\js\controllers\ratings\rating.js" />
+    <Content Include="app\js\controllers\ratings\ratings.js" />
+    <Content Include="app\js\controllers\tags\tag.js" />
+    <Content Include="app\js\controllers\tags\edit.js" />
+    <Content Include="app\js\controllers\tags\tags.js" />
+    <Content Include="app\js\services\authentication.js" />
+    <Content Include="app\js\services\imageData.js" />
+    <Content Include="app\js\services\tagData.js" />
+    <Content Include="app\js\services\checkData.js" />
+    <Content Include="app\js\services\locationData.js" />
+    <Content Include="app\js\services\locationTypeData.js" />
+    <Content Include="app\js\services\ratingData.js" />
+    <Content Include="app\js\vendor\angular-simple-logger.js" />
+    <Content Include="app\js\vendor\ng-file-upload-all.js" />
+    <Content Include="app\js\views\checks\check.html" />
+    <Content Include="app\js\views\checks\edit.html" />
+    <Content Include="app\js\views\locations\edit.html" />
+    <Content Include="app\js\views\locations\reviews.html" />
+    <Content Include="app\js\views\locations\review.html" />
+    <Content Include="app\js\views\locationTypes\edit.html" />
+    <Content Include="app\js\views\logout.html" />
+    <Content Include="app\js\views\login.html" />
+    <Content Include="app\js\views\ratings\edit.html" />
+    <Content Include="app\js\views\ratings\rating.html" />
+    <Content Include="app\js\views\ratings\ratings.html" />
+    <Content Include="app\js\views\locationTypes\locationType.html" />
+    <Content Include="app\js\views\locations\location.html" />
+    <Content Include="app\js\views\locations\locations.html" />
+    <Content Include="app\js\views\checks\checks.html" />
+    <Content Include="app\js\views\locationTypes\locationTypes.html" />
+    <Content Include="app\css\vendor\ui-bootstrap-csp.css" />
+    <Content Include="app\js\views\tags\tag.html" />
+    <Content Include="app\js\views\tags\tags.html" />
+    <Content Include="app\js\views\tags\edit.html" />
+    <Content Include="Global.asax" />
+    <Content Include="app\index.html" />
+    <Content Include="app\css\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="app\css\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="app\css\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="app\css\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="app\css\vendor\bootstrap-theme.css.map" />
+    <Content Include="app\css\vendor\bootstrap.css.map" />
+    <None Include="app\js\vendor\jquery-1.9.1.intellisense.js" />
+    <Content Include="app\js\vendor\bootstrap.js" />
+    <Content Include="app\js\vendor\bootstrap.min.js" />
+    <Content Include="app\js\vendor\jquery-1.9.1.js" />
+    <Content Include="app\js\vendor\jquery-1.9.1.min.js" />
+    <Content Include="app\js\vendor\angular-mocks.js" />
+    <Content Include="app\js\vendor\angular-route.js" />
+    <Content Include="app\js\vendor\angular-route.min.js" />
+    <Content Include="app\js\vendor\angular-ui\ui-bootstrap-tpls.js" />
+    <Content Include="app\js\vendor\angular-ui\ui-bootstrap-tpls.min.js" />
+    <Content Include="app\js\vendor\angular-ui\ui-bootstrap.js" />
+    <Content Include="app\js\vendor\angular-ui\ui-bootstrap.min.js" />
+    <Content Include="app\js\vendor\angular.js" />
+    <Content Include="app\js\vendor\angular.min.js" />
+    <Content Include="app\js\vendor\lodash.js" />
+    <Content Include="app\js\vendor\lodash.min.js" />
+    <Content Include="app\js\vendor\angular-google-maps-street-view.js" />
+    <Content Include="app\js\vendor\angular-google-maps-street-view.min.js" />
+    <Content Include="app\js\vendor\angular-google-maps.js" />
+    <Content Include="app\js\vendor\angular-google-maps.min.js" />
+    <Content Include="app\js\vendor\moment.js" />
+    <Content Include="Web.config" />
+    <Content Include="app\js\vendor\jquery-1.9.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="App_Start\SwaggerConfig.cs" />
+    <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Context\FriendlyContext.cs" />
+    <Compile Include="Controllers\CheckController.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\LocationTypeController.cs" />
+    <Compile Include="Controllers\LocationController.cs" />
+    <Compile Include="Controllers\RatingController.cs" />
+    <Compile Include="Controllers\Requests\CheckRequest.cs" />
+    <Compile Include="Controllers\Requests\GetLocationsRequest.cs" />
+    <Compile Include="Controllers\Requests\ReviewLocationRequest.cs" />
+    <Compile Include="Controllers\Requests\LocationTypeRequest.cs" />
+    <Compile Include="Controllers\Requests\LocationRequest.cs" />
+    <Compile Include="Controllers\Requests\RatingRequest.cs" />
+    <Compile Include="Controllers\Requests\AuthenticateUserRequest.cs" />
+    <Compile Include="Controllers\Requests\TagRequest.cs" />
+    <Compile Include="Controllers\TagController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\FriendlyMapperProfile.cs" />
+    <Compile Include="Migrations\201512060305273_1.cs" />
+    <Compile Include="Migrations\201512060305273_1.Designer.cs">
+      <DependentUpon>201512060305273_1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512060829241_2.cs" />
+    <Compile Include="Migrations\201512060829241_2.Designer.cs">
+      <DependentUpon>201512060829241_2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601300314049_3.cs" />
+    <Compile Include="Migrations\201601300314049_3.Designer.cs">
+      <DependentUpon>201601300314049_3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602051937481_4.cs" />
+    <Compile Include="Migrations\201602051937481_4.Designer.cs">
+      <DependentUpon>201602051937481_4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602160826317_5.cs" />
+    <Compile Include="Migrations\201602160826317_5.Designer.cs">
+      <DependentUpon>201602160826317_5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ApiModels\CheckApiModel.cs" />
+    <Compile Include="Models\ApiModels\CheckScoreApiModel.cs" />
+    <Compile Include="Models\ApiModels\LocationReviewApiModel.cs" />
+    <Compile Include="Models\ApiModels\LocationTypeApiModel.cs" />
+    <Compile Include="Models\ApiModels\LocationApiModel.cs" />
+    <Compile Include="Models\ApiModels\RatingApiModel.cs" />
+    <Compile Include="Models\ApiModels\RatingScoreApiModel.cs" />
+    <Compile Include="Models\ApiModels\TagApiModel.cs" />
+    <Compile Include="Models\Check.cs" />
+    <Compile Include="Models\CheckScore.cs" />
+    <Compile Include="Models\FriendlyUser.cs" />
+    <Compile Include="Models\ImageLink.cs" />
+    <Compile Include="Models\Location.cs" />
+    <Compile Include="Models\LocationType.cs" />
+    <Compile Include="Models\Rating.cs" />
+    <Compile Include="Models\RatingScore.cs" />
+    <Compile Include="Models\LocationReview.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Providers\ApplicationOAuthProvider.cs" />
+    <Compile Include="Results\ChallengeResult.cs" />
+    <Compile Include="Infrastructure\Cache.cs" />
+    <Compile Include="Services\LocationBoundsService.cs" />
+    <Compile Include="Services\LocationReviewService.cs" />
+    <Compile Include="Services\LocationService.cs" />
+    <Compile Include="Startup.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+    <Content Include="app\js\vendor\angular.min.js.map" />
+    <Content Include="app\js\vendor\angular-route.min.js.map" />
+    <None Include="Properties\PublishProfiles\kdfy - FTP.pubxml" />
+    <None Include="Properties\PublishProfiles\kdfy - Web Deploy.pubxml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512060305273_1.resx">
+      <DependentUpon>201512060305273_1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512060829241_2.resx">
+      <DependentUpon>201512060829241_2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601300314049_3.resx">
+      <DependentUpon>201601300314049_3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602051937481_4.resx">
+      <DependentUpon>201602051937481_4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602160826317_5.resx">
+      <DependentUpon>201602160826317_5.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <SaveServerSettingsInUserFile>True</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

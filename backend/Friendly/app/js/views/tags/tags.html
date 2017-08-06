@@ -1,0 +1,23 @@
+﻿<div>
+    <h1 class="page-header">Tags</h1>
+    <p class="text-right">
+        <a class="btn btn-success btn-lg" href="#/tags/new/edit" role="button">Add Tag</a>
+    </p>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="tag in tags">
+                <td>{{ ($index+1) }}</td>
+                <td><a href="#/tags/{{tag.id}}">{{ tag.description }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,53 @@
+﻿<div>
+    <h1 class="page-header">
+        Reviews for {{location.name}}
+    </h1>
+</div>
+<div ng-if="location.reviews.length > 0">
+    <div class="form-group">
+        <div ng-repeat="review in location.reviews">
+            <div class="panel panel-default">                     
+                <div class="panel-heading">
+                    <h3 class="panel-title">
+                        <b>Total score:</b>
+                        <span class="label" style="font-size: 18px;" ng-class="{'label-warning': review.score < 2, 'label-info': review.score >= 2 && review.score <= 3, 'label-success': review.score >= 4}" ng-show="true">{{review.score}}/5</span>
+                    </h3>
+                </div>   
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>Reviewed by:</b> {{review.userName}}</h3>
+                </div>              
+                <div class="panel-heading">
+                    <h3 class="panel-title"><b>Review date:</b> {{review.formattedDate}}</h3>
+                </div>                 
+                <ul class="list-group">
+                    <li class="list-group-item" >
+                        <h4><span class="label label-primary">Checks</span></h4>
+                        <div class="checkbox" ng-repeat="checkScore in review.checkScores">
+                            <label class="friendly-cursor-auto">
+                                <input type="checkbox" disabled value="" ng-model="checkScore.value" class="friendly-cursor-auto" />
+                                <span>{{getCheckDescription(checkScore.checkId)}}</span>
+                                <span class="label" ng-class="{'label-danger': checkScore.value == false, 'label-success': checkScore.value == true}">{{checkScore.value ? "Yes" : "No"}}</span>
+                            </label>                            
+                        </div>                        
+                    </li>
+                    <li class="list-group-item">
+                        <h4><span class="label label-primary">Ratings</span></h4>
+                        <div ng-repeat="ratingScore in review.ratingScores">
+                            <div>{{getRatingDescription(ratingScore.ratingId)}}</div>
+                            <label>
+                                <uib-rating class="friendly-rating disabled" ng-model="ratingScore.value" max="5" readonly="true" aria-labelledby="default-rating"></uib-rating>
+                                <span class="label" ng-class="{'label-warning': ratingScore.value < 2, 'label-info': ratingScore.value >= 2 && ratingScore.value <= 3, 'label-success': ratingScore.value >= 4}" ng-show="true">{{ratingScore.value}}/5</span>
+                            </label>
+                        </div>
+                    </li>                   
+                </ul>
+                <div class="panel-heading" ng-if="review.comment.length > 0">
+                    <h3 class="panel-title"><b>Comment:</b> {{review.comment}}</h3>
+                </div>                               
+            </div>
+        </div>
+    </div>  
+</div>
+<div ng-if="location.reviews.length === 0">
+    There are no reviews for this location.
+</div>

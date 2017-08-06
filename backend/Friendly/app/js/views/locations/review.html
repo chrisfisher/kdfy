@@ -1,0 +1,57 @@
+﻿<div>
+    <h1 class="page-header">
+        {{location.name}}
+    </h1>
+</div>
+<div>
+    <div class="form-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><b>Checks</b></h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="checkGroup in checkGroups">
+                    <span class="label label-primary">{{checkGroup.tag}}</span>
+                    <div class="checkbox" ng-repeat="check in checkGroup.checks">
+                        <label>
+                            <input type="checkbox" value="" ng-model="check.value">
+                            {{check.description}}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><b>Ratings</b></h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="ratingGroup in ratingGroups">
+                    <span class="label label-primary">{{ratingGroup.tag}}</span>
+                    <div class="checkbox" ng-repeat="rating in ratingGroup.ratings">
+                        <div ng-repeat="rating in ratingGroup.ratings">
+                            <div>{{rating.description}}</div>
+                            <uib-rating class="friendly-rating" ng-model="rating.value" max="maxRating" readonly="false" on-hover="onRatingHoverStart(value, rating.id)" on-leave="onRatingHoverStop(rating.id)" aria-labelledby="default-rating"></uib-rating>
+                            <span class="label" ng-class="{'label-warning': activeRatingValue < 2, 'label-info': activeRatingValue >= 2 && activeRatingValue <= 3, 'label-success': activeRatingValue >= 4}" ng-show="activeRatingValue > 0">{{activeRatingValue}}/5</span>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title"><b>Comment</b></h3>
+            </div>
+            <div>
+                <textarea class="form-control noresize" rows="5" ng-model="reviewLocationRequest.comment"></textarea>
+            </div>
+        </div>
+    </div>
+    <p class="text-right">
+        <a class="btn btn-success btn-lg" href="" role="button" ng-click="save()">Save</a>
+    </p>
+</div>

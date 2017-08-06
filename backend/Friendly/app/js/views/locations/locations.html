@@ -1,0 +1,23 @@
+﻿<div>
+    <h1 class="page-header">Locations</h1>
+    <p class="text-right">
+        <a class="btn btn-success btn-lg" href="#/locations/new/edit" role="button">Add Location</a>
+    </p>
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="location in locations">
+                <td>{{ ($index+1) }}</td>
+                <td><a href="#/locations/{{location.id}}">{{ location.name }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

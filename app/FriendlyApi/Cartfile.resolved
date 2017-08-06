@@ -1,0 +1,6 @@
+github "Alamofire/Alamofire" "3.2.0"
+github "zalando/MapleBacon" "2.0.7"
+github "mxcl/OMGHTTPURLRQ" "3.1.1"
+github "Hearst-DD/ObjectMapper" "1.1.2"
+github "mxcl/PromiseKit" "3.0.2"
+github "tristanhimmelman/AlamofireObjectMapper" "2.1.2"

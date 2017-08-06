@@ -1,0 +1,27 @@
+﻿<div>
+    <h1 class="page-header">Checks</h1>
+    <p class="text-right">
+        <a class="btn btn-success btn-lg" href="#/checks/new/edit" role="button">Add Check</a>
+    </p>
+</div>
+
+<div class="table-responsive">
+    <!--<h3><span class="label label-primary">{{location.locationType.name}}</span></h3>
+    <p>&nbsp;</p>-->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Tag</th>
+                <th>Title</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr ng-repeat="check in checks">
+                <td>{{ ($index+1) }}</td>
+                <td><span class="label label-primary">{{ check.tag.description }}</span></td>
+                <td><a href="#/checks/{{check.id}}">{{ check.description }}</a></td>
+            </tr>
+        </tbody>
+    </table>
+</div>

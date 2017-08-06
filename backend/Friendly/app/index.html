@@ -1,0 +1,89 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Kid Friendly</title>
+    <link href="css/app.css" rel="stylesheet">
+    <link href="css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="css/vendor/dashboard.css" rel="stylesheet">
+</head>
+<body ng-app="friendlyApp">
+      
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#"></a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <form class="navbar-form navbar-right">                   
+                    <a class="btn btn-primary btn-sm" href="#/logout" role="button">Sign out</a>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-3 col-md-2 sidebar">
+                <ul class="nav nav-sidebar">
+                    <li id="locations-nav-link"><a href="#/locations">Locations</a></li>
+                    <li id="location-types-nav-link"><a href="#/locationTypes">Location Types</a></li>
+                    <li id="checks-nav-link"><a href="#/checks">Checks</a></li>
+                    <li id="ratings-nav-link"><a href="#/ratings">Ratings</a></li>
+                    <li id="tags-nav-link"><a href="#/tags">Tags</a></li>
+                </ul>              
+            </div>
+            <div class="col-sm-9 col-sm-offset-3 col-md-10 col-md-offset-2 main" ng-view>
+                
+            </div>
+        </div>
+    </div>
+   
+    <script src="js/vendor/jquery-1.9.1.min.js"></script>
+    <script src="js/vendor/bootstrap.min.js"></script>
+    <script src="js/vendor/lodash.min.js"></script>
+    <script src="js/vendor/angular.js"></script>
+    <script src="js/vendor/angular-route.js"></script>
+    <script src="js/vendor/angular-simple-logger.js"></script>
+    <script src="js/vendor/angular-google-maps.min.js"></script>
+    <script src="js/vendor/angular-ui/ui-bootstrap-tpls.js"></script>
+    <script src="js/vendor/ng-file-upload-all.js"></script>       
+    <script src="js/vendor/moment.js"></script>    
+    <script src="js/app.js"></script>
+    <script src="js/controllers/locations/locations.js"></script>
+    <script src="js/controllers/locations/location.js"></script>
+    <script src="js/controllers/locations/edit.js"></script>
+    <script src="js/controllers/locations/review.js"></script>
+    <script src="js/controllers/locations/reviews.js"></script>
+    <script src="js/controllers/locationTypes/locationTypes.js"></script>
+    <script src="js/controllers/locationTypes/locationType.js"></script> 
+    <script src="js/controllers/locationTypes/edit.js"></script>
+    <script src="js/controllers/checks/checks.js"></script>
+    <script src="js/controllers/checks/check.js"></script>
+    <script src="js/controllers/checks/edit.js"></script>
+    <script src="js/controllers/ratings/ratings.js"></script>
+    <script src="js/controllers/ratings/rating.js"></script>
+    <script src="js/controllers/ratings/edit.js"></script>
+    <script src="js/controllers/tags/tags.js"></script>
+    <script src="js/controllers/tags/tag.js"></script>
+    <script src="js/controllers/tags/edit.js"></script>
+    <script src="js/controllers/login.js"></script> 
+    <script src="js/controllers/logout.js"></script> 
+    <script src="js/services/authentication.js"></script> 
+    <script src="js/services/locationData.js"></script> 
+    <script src="js/services/locationTypeData.js"></script> 
+    <script src="js/services/checkData.js"></script> 
+    <script src="js/services/ratingData.js"></script> 
+    <script src="js/services/tagData.js"></script> 
+    <script src="js/services/imageData.js"></script> 
+
+</body>
+</html>

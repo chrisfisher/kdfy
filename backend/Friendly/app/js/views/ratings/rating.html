@@ -1,0 +1,13 @@
+﻿<div>
+    <h1 class="page-header">
+        {{rating.description}}
+    </h1>
+</div>
+<div>    
+    <h3><span class="label label-primary">{{rating.tag.description}}</span></h3>
+    <p>&nbsp;</p>
+    <p class="text-right">
+        <a class="btn btn-danger btn-lg" href="" role="button" ng-click="deleteRating()">Delete</a>
+        <a class="btn btn-success btn-lg" href="#/ratings/{{rating.id}}/edit" role="button">Edit</a>
+    </p>
+</div>

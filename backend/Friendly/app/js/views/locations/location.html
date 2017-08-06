@@ -1,0 +1,73 @@
+﻿<div>
+    <div class="row page-header">
+        <div class="col-md-8">
+            <h1>
+                {{location.name}}
+            </h1>
+        </div>
+        <div class="col-md-4">
+            <h4 class="text-right">
+                <a class="btn btn-primary btn-lg" href="#/locations/{{location.id}}/reviews" role="button">See Reviews</a>
+            </h4>
+        </div>
+    </div>
+   
+</div>
+<div> 
+    
+    <p>&nbsp;</p>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <div class="panel-title"><b>Location Type:</b> <span class="label label-warning" style="font-size: 14px;">{{location.locationType.name}}</span></div>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Google Place Name:</b> {{location.googlePlaceName}}</h3>
+        </div>        
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Google Place Address:</b> {{location.googlePlaceAddress}}</h3>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Checks</b></h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="check in location.locationType.checks">{{check.description}}</li>
+        </ul>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Ratings</b></h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item" ng-repeat="rating in location.locationType.ratings">{{rating.description}}</li>
+        </ul>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Local Secrets</b></h3>
+        </div>
+        <ul class="list-group">
+            <li class="list-group-item">{{location.localSecrets}}</li>
+        </ul>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title"><b>Images</b></h3>
+        </div>
+        <div ng-repeat="locationImage in locationImages" class="panel panel-default">
+            <div class="panel-body">
+                <img src="{{locationImage.url}}" style="width:400px;height:400px;" />               
+            </div>
+        </div>
+    </div>    
+    <p class="text-right">
+        <a class="btn btn-danger btn-lg" href="" role="button" ng-click="deleteLocation()">Delete</a>    
+        <a class="btn btn-info btn-lg" href="#/locations/{{location.id}}/review" role="button">Review</a>    
+        <a class="btn btn-success btn-lg" href="#/locations/{{location.id}}/edit" role="button">Edit</a>
+    </p>
+</div>

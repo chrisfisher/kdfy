@@ -1,0 +1,49 @@
+﻿<div>
+    <h1 class="page-header">Edit Location Type</h1>
+</div>
+<div>
+    <div class="vert-space"></div>
+    <div class="form-group">
+        <label>What is the name of this location type?</label>
+        <input type="text" class="form-control" ng-model="locationTypeRequest.locationTypeName">
+    </div>
+    <div class="form-group">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">Select <b>checks</b> for this location type:</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="checkGroup in checkGroups">
+                    <span class="label label-primary">{{checkGroup.tag}}</span>
+                    <div class="checkbox" ng-repeat="check in checkGroup.checks">
+                        <label>
+                            <input type="checkbox" value="" ng-model="check.isSelected">
+                            {{check.description}}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="panel panel-default>
+            <div class="panel-heading">
+                <h3 class="panel-title">Select <b>ratings</b> for this location type:</h3>
+            </div>
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="ratingGroup in ratingGroups">
+                    <span class="label label-primary">{{ratingGroup.tag}}</span>
+                    <div class="checkbox" ng-repeat="rating in ratingGroup.ratings">
+                        <label>
+                            <input type="checkbox" value="" ng-model="rating.isSelected">
+                            {{rating.description}}
+                        </label>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <p class="text-right">
+        <a class="btn btn-success btn-lg" href="" role="button" ng-click="saveLocationType()">Save</a>
+    </p>
+</div>
